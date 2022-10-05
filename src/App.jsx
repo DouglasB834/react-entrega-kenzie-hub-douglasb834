@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import { RoutesMain } from './Routes';
 
 function App() {
   return (
-    <div className="App">
+    <div className="containeGeral">
+     <RoutesMain/>
      
     </div>
   );

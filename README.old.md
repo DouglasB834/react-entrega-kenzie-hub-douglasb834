@@ -12,3 +12,6 @@ https://reactrouter.com/en/6.4.1
 
 https://axios-http.com/docs/intro
 
+doc api 
+https://github.com/Kenzie-Academy-Brasil-Developers/kenziehub-api
+
