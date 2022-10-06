@@ -4,7 +4,8 @@ export const HeaderStyledHome = styled.header`
 display: flex; 
 align-items: center;
 height: 120px;
-max-width: 380px;
+/* max-width: 380px; */
+max-width: ${({location}) => location === "/singup"? `${380}px` : `${780}px` };
 margin: 0 auto;
 .container{
     width: 100%;
@@ -19,7 +20,10 @@ margin: 0 auto;
     }
 }
 
-button{
+a{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     width: 5.6rem;
     height: 31px ;
@@ -30,7 +34,7 @@ button{
     
 
 }
-button:hover{
+a:hover{
     background-color: var(--grey-2);
 }
 

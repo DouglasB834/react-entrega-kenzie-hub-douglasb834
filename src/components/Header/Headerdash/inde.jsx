@@ -11,8 +11,7 @@ export const HeaderGeral = ()=>{
         navigate("/")
         localStorage.removeItem("@tokenHub")
     }
-
-
+    
     return (
         <>
         <DivstyledHeader >

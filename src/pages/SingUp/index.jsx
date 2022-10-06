@@ -7,8 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { instance } from "../../Api/instance";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { DataContext} from "../../Context/context";
 
 
 const notify =()=>{
@@ -42,7 +40,12 @@ export const SingUp =()=>{
    const userSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
     email: yup.string().email("E-mail invalido").required("password Obrigatório"),
-    password: yup.string().required("password Obrigatório").min(8, "Minimo de 8 caracter").matches(""),
+    password: yup.string().required("password Obrigatório").min(8, "Minimo de 8 caracter")
+    .matches(/[A-Z]/, "Deve conter ao menos 1 letra mauscula")
+    .matches(/[a-z]/, "Deve conter ao menos 1 letra minuscula")
+    .matches(/(\d)/, "Deve conter ao menos 1 número")
+    .matches(/(\W)|_/, "Deve conter ao menos 1 caracater especial")
+    .matches(/.{8,}/, "Deve conter no minimo 8 caracater"),
     confirmPassword: yup.string().required("password Obrigatório").oneOf([yup.ref("password")],"Senha não confere"),
     bio: yup.string().required("Compo Obrigatório"),
     contact: yup.string().required("Compo de contato Obrigatorio"),
@@ -53,7 +56,6 @@ export const SingUp =()=>{
         resolver: yupResolver(userSchema)
     })
 
-    const {setUser} = useContext(DataContext)
 
     const navigate = useNavigate()
 
@@ -62,7 +64,6 @@ export const SingUp =()=>{
         instance.post(`/users`, data)
         .then(res=> {
             notify()
-            setUser(res.data)
             setTimeout(()=>{
                 navigate("/")
             },1000)
@@ -72,10 +73,6 @@ export const SingUp =()=>{
             console.log(error)
         })
     }
-
-  
-
-
 
     return (
         <DivStyled >
