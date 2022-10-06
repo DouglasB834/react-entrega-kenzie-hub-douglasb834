@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -48,11 +47,15 @@ table {
 	border-spacing: 0;
 }
 body{
-	background-color:var(--grey-3);
+	background-color:var(--grey-4);
 }
 
 img{
 	/* max-width: 100%; */
+}
+
+input{
+	outline: none;
 }
 
 
@@ -65,28 +68,63 @@ img{
     --grey-4:#121214;
     --grey-3:#212529;
     --grey-2:#343B41;
-    --grey-1:#868E96
-    --grey-0:#F8F9FA
+    --grey-1:#868E96;
+    --grey-0:#F8F9FA;
 /* Feedback Palette */
     --sucess: #3FE864;
     --negative: #E83F5B;
 
     /* Typography */
-    --title1: 1rem //16px
-    --headline: .75rem//12px
+    --title: 1.12rem ;//16px
+    --title1: 1rem ;//16px
+    --title2: .75rem;//12px
     
 
 }
 
+.btnLogin, .singUp ,.btnSingForm{
+	width: 100%;
+    height: 2.3rem;
+	font-weight: 500;
+	color: var(--grey-0);
+	font-size: var(--title2);
+	background-color: var(--color-primary);
+	transition: .2s linear;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.title{
+	font-size: var(--title1) ;
+	color: var(--grey-0);
+	margin-bottom: 1rem;
+}
+.btnSingForm{
+	background-color: var(--color-primary-Negative);
+}
+.btnSingForm:hover{
+	background-color: var(--color-primary);
+}
 
 
+.singUp{
+	background-color: var(--grey-1);
+}
 
+.btnLogin:hover{
+	background-color: var(--color-primary-Focus);
+}
 
+.singUp:hover{
+	background-color: var(--grey-2);
+}
 
+@media (min-width: 424px ) {
+	.btnLogin, .singUp, .btnSingForm{
+        height:3rem ;
 
-
-
-
+	}
+    }
 
 
 `
