@@ -1,12 +1,18 @@
 import { Outlet, useNavigate } from "react-router-dom"
-import  logo from "../../../img/Logo.png"
+import  logo from "../../../assets/Logo.png"
 import { DivstyledHeader, HeaderStyled } from "./style"
 
 
 
 export const HeaderGeral = ()=>{
     const navigate = useNavigate()
-    const back =(event)=>navigate("/")
+    const back =(event)=>{
+        console.log("limpar")
+        navigate("/")
+        localStorage.removeItem("@tokenHub")
+    }
+
+
     return (
         <>
         <DivstyledHeader >

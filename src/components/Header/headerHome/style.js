@@ -4,7 +4,8 @@ export const HeaderStyledHome = styled.header`
 display: flex; 
 align-items: center;
 height: 120px;
-width: 100%;
+max-width: 380px;
+margin: 0 auto;
 .container{
     width: 100%;
     display: flex;
