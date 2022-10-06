@@ -7,7 +7,6 @@ height: 120px;
 max-width: 780px;
 padding: 0 1rem;
 margin:  0 auto;
-
 .container{
     width: 100%;
     display: flex;
@@ -18,10 +17,8 @@ margin:  0 auto;
     .boxLogo{
         
         padding: 1rem ;
-
     }
 }
-
 button{
     cursor: pointer;
     width: 4.6rem;
@@ -31,12 +28,10 @@ button{
     color: var(--grey-0);
     transition: .2s linear;
     
-
 }
 button:hover{
     background-color: var(--grey-2);
 }
-
 `
 
 export const DivstyledHeader = styled.div`
@@ -44,5 +39,4 @@ export const DivstyledHeader = styled.div`
     margin:  0 auto;
     border-bottom: solid 1px var(--grey-2) ;
     
-
 `

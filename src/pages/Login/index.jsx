@@ -1,4 +1,3 @@
-
 import  logo from "../../assets/Logo.png"
 import { instance } from "../../Api/instance"
 import { FormStyled, InputStyled } from "../../components/Form/Style"
@@ -41,6 +40,7 @@ export const Login =()=>{
     }
 
     const navitage = useNavigate()
+
     const btnSingUp =()=> navitage("/singup")  
 
     const loginSchema = yup.object().shape({
@@ -53,14 +53,16 @@ export const Login =()=>{
     })
   
     const submitLogin =(data)=>{
-        // const 
+        
         instance.post(`/sessions/`, data)
         .then(res=>{
-        localStorage.setItem("@tokenHub",res.data.token)
+            console.log(res.data)
+            localStorage.setItem("@id", res.data.user.id)
+            localStorage.setItem("@token",res.data.token)
+        console.log("oioioioi passei aq")
         notify()
-        setUser(res.data)
             setTimeout(()=>{
-                navitage("dashboard")
+                navitage("/dashboard")
             },1000)
         })
         .catch(error =>{

@@ -4,15 +4,17 @@ import 'animate.css';
 export const FormStyled = styled.form`
   width: 100%;
   max-width: 370px;
+
   padding: .6rem;
+  margin-bottom: 2rem;
+  animation-duration:.7s;
+  
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: var(--grey-3);
-  animation-duration:  .7s;
-  margin-bottom: 2rem;
-  margin: 0 auto;
-
+  
   .boxtitle{
     text-align: center;
     margin: 1rem 0;
@@ -47,9 +49,6 @@ export const FormStyled = styled.form`
     }
   }
 
-  /* @media (min-width: 424px) {
-    width: 370px;
-  } */
 `;
 
 export const InputStyled = styled.input`

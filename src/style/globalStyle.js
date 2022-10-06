@@ -22,6 +22,7 @@ time, mark, audio, video, button {
 	box-sizing: border-box;
 	vertical-align: baseline;
 	font-family: 'Inter', sans-serif;
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -83,6 +84,9 @@ input{
 }
 
 .btnLogin, .singUp ,.btnSingForm{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
     height: 2.3rem;
 	font-weight: 500;

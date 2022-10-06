@@ -1,17 +1,17 @@
-import { useContext } from "react"
-import { DataContext } from "../../../../Context/context"
+
 import { UserDivStyled } from "./style"
 
 
-export const User =() =>{
+export const User =({user}) =>{
 
-    const {user} =useContext(DataContext)
-    console.log(user)
+    
+    console.log(user.name)
+
     return(
         <UserDivStyled>
             <div className="contentUser">
-                <h2>Ola {user.user.name}</h2>
-                <p>{user.user.course_module}</p>
+                <h2>Olá {user.name} </h2>
+                <p>{user.course_module}</p>
 
             </div>
         </UserDivStyled>
