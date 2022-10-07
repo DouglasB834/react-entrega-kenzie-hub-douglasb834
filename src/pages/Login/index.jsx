@@ -1,17 +1,16 @@
 import  logo from "../../assets/Logo.png"
 import { instance } from "../../Api/instance"
-import { FormStyled, InputStyled } from "../../components/Form/Style"
-import { useNavigate } from "react-router-dom"
+import { DivChangePsw, FormStyled, InputStyled } from "../../components/Form/Style"
+import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from 'yup' 
 import { toast } from "react-toastify"
-import { useContext } from "react"
-import { DataContext } from "../../Context/context"
+import {useEffect, useState } from "react"
 import { DivStyled } from "./style"
-
+import { ImEye } from "react-icons/im";
+// import { IconName } from "react-icons/gi";
 export const Login =()=>{
-    const{setUser}=  useContext(DataContext)
 
     const notify =()=>{
     toast.success("✅Logando", {
@@ -39,38 +38,46 @@ export const Login =()=>{
         });
     }
 
-    const navitage = useNavigate()
+    const locoPassword =()=>{
+        // GiEyelashes , ImEye
+    }
 
-    const btnSingUp =()=> navitage("/singup")  
+
+
+    const navigate = useNavigate()
 
     const loginSchema = yup.object().shape({
         email: yup.string().required("E-mail Obrigatório").email("Campo invalido"),
-        password: yup.string().required("Password Obrigatório")
+        password: yup.string().required("Password Obrigatório").min(8,"No minimo são 8 caracter")
     })
 
     const { register, handleSubmit, formState:{errors}} = useForm({
         resolver:  yupResolver(loginSchema)
     })
   
+    const token = localStorage.getItem("@token")
+    useEffect(()=>{
+        if(token){
+            navigate("/dashboard")
+        }
+    },[token])
+
+    // const [loading, setLoading]= useState(false)//aprendendo a fazer loanding
     const submitLogin =(data)=>{
-        
+      
         instance.post(`/sessions/`, data)
         .then(res=>{
-            console.log(res.data)
             localStorage.setItem("@id", res.data.user.id)
             localStorage.setItem("@token",res.data.token)
-        console.log("oioioioi passei aq")
         notify()
             setTimeout(()=>{
-                navitage("/dashboard")
+                navigate("/dashboard")
             },1000)
         })
         .catch(error =>{
             Negative()
             console.log(error)
         })
-
-       
     }
     
 
@@ -88,16 +95,30 @@ export const Login =()=>{
                 
                 <label htmlFor="email">Email</label>
                 <InputStyled id="email" type="email" placeholder="Digite e-mail"  {...register("email")}/>
-                <span>{errors.email?.message}</span>
+                <span className="errors">
+                    {errors.email?.message}
+                </span>
+                
                 <label htmlFor="password">Senha</label>
-                <InputStyled id="password" type="password" placeholder="Digite password"  {...register("password")}/>
-                <span>{errors.password?.message}</span>
+
+                <DivChangePsw>
+                <input className="changeInput" id="password" type="password" placeholder="Digite password"  {...register("password")}/>
+                   <span>
+                   <ImEye/>
+                    </span>
+
+                </DivChangePsw>
+
+                <span className="errors">
+                    {errors.password?.message}
+                </span>
+
              
                 <button  className="btnLogin">Entrar</button>
 
                 <div className="boxSingUp">
                     <p>Ainda não possuir uma conta ?</p>
-                    <button  className="singUp" onClick={(btnSingUp)}>Cadastrar</button>
+                    <Link to="singup" className="singUp">Cadastrar</Link>
                 </div>
 
             </FormStyled>

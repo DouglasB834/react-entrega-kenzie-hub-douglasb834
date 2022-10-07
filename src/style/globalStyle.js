@@ -48,6 +48,7 @@ table {
 	border-spacing: 0;
 }
 body{
+	width: 100%;
 	background-color:var(--grey-4);
 }
 
@@ -58,7 +59,6 @@ img{
 input{
 	outline: none;
 }
-
 
 :root{
     --color-primary:#FF577F;

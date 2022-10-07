@@ -4,9 +4,6 @@ import { UserDivStyled } from "./style"
 
 export const User =({user}) =>{
 
-    
-    console.log(user.name)
-
     return(
         <UserDivStyled>
             <div className="contentUser">

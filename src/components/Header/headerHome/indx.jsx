@@ -1,6 +1,6 @@
 import  logo from "../../../assets/Logo.png"
-import { Link, useLocation} from "react-router-dom"
-import { HeaderStyledHome } from "./style"
+import { Link, Outlet, useLocation} from "react-router-dom"
+import { DivstyledHeader, HeaderStyled, HeaderStyledHome } from "./style"
 
 
 export const HeaderHome = ()=>{
@@ -13,18 +13,47 @@ export const HeaderHome = ()=>{
         localStorage.removeItem("@token")
         localStorage.removeItem("@id")
     }
+  
 
 
     return(
+        <>
+            {
+                location.pathname ==="/singup" ?(
+                    <HeaderStyledHome location={location.pathname}>
+                    <div className="container">                
+                        <div className="boxLogo">                  
+                            <img src={logo} alt="Logo" />
+                        </div>
+    
+                        <Link to="/" >voltar</Link>
+                    </div>
+                 </HeaderStyledHome>
+                ):(
+                    <DivstyledHeader >
+                
+                        <HeaderStyled>
+                            <div className="container">
+                                
+                                <div className="boxLogo">                  
+                                    <img src={logo} alt="Logo" />
+                                </div>
+            
+                                <Link to="/" onClick={(back)}>voltar</Link>
+                            </div>
 
-        <HeaderStyledHome location={location.pathname}>
-            <div className="container">                
-                <div className="boxLogo">                  
-                    <img src={logo} alt="Logo" />
-                </div>
+                        </HeaderStyled>
+            
+                    </DivstyledHeader>
+        
 
-                <Link to="/" onClick={(back)}>voltar</Link>
-            </div>
-        </HeaderStyledHome>
+                )
+            }
+          
+
+
+        
+            <Outlet/>
+        </>
     )
 }

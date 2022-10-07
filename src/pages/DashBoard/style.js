@@ -5,8 +5,6 @@ export const MainStyled = styled.main`
     width: 100%;
     display:flex;
     flex-direction: column;
-
-
     .container{
         display: flex;
         justify-content: center;

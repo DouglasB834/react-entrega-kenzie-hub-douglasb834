@@ -39,13 +39,14 @@ export const SingUp =()=>{
 
    const userSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
-    email: yup.string().email("E-mail invalido").required("password Obrigatório"),
-    password: yup.string().required("password Obrigatório").min(8, "Minimo de 8 caracter")
-    .matches(/[A-Z]/, "Deve conter ao menos 1 letra mauscula")
-    .matches(/[a-z]/, "Deve conter ao menos 1 letra minuscula")
+    email: yup.string().email("E-mail invalido").required("E-mail Obrigatório"),
+    password: yup.string().required("Password Obrigatório").min(8, "Minimo de 8 caracter")
+    .matches(/[A-Z]/, "Deve conter ao menos 1 letra maiuscula ")
+    .matches(/[a-z]/, "Deve conter ao menos 1 letra minúscula ")
     .matches(/(\d)/, "Deve conter ao menos 1 número")
     .matches(/(\W)|_/, "Deve conter ao menos 1 caracater especial")
     .matches(/.{8,}/, "Deve conter no minimo 8 caracater"),
+
     confirmPassword: yup.string().required("password Obrigatório").oneOf([yup.ref("password")],"Senha não confere"),
     bio: yup.string().required("Compo Obrigatório"),
     contact: yup.string().required("Compo de contato Obrigatorio"),
@@ -55,12 +56,9 @@ export const SingUp =()=>{
     const {register, handleSubmit, formState:{errors}} =useForm({
         resolver: yupResolver(userSchema)
     })
-
-
     const navigate = useNavigate()
 
     const onSubmit =(data)=> {
-        console.log(data)
         instance.post(`/users`, data)
         .then(res=> {
             notify()
@@ -76,9 +74,6 @@ export const SingUp =()=>{
 
     return (
         <DivStyled >
-            <div className="boxtitle">
-                <HeaderHome/>
-            </div>
 
             <FormStyled className="animate__flipInX" onSubmit={(handleSubmit(onSubmit))}>
 
@@ -89,26 +84,43 @@ export const SingUp =()=>{
 
                 <label htmlFor="name">Nome</label>
                 <InputStyled type="text" id="name" placeholder="Digite aqui seu nome" {...register("name")}/>
-                {errors.name?.message}
+                <span className="errors">
+                    {errors.name?.message}
+                </span>
+
+
                 <label htmlFor="email">Email</label>
                 <InputStyled type="email" id="email"  placeholder="Digite aqui seu email" {...register("email")} />
-                {errors.email?.message}
+                <span className="errors">
+                    {errors.email?.message}
+                </span>
 
                 <label htmlFor="password">Senha</label>
                 <InputStyled type="password" id="password" placeholder="Digite aqui sua senha"{...register("password")}/>
-                {errors.password?.message}
+                <span className="errors">
+                    {errors.password?.message}
+                </span>
+
 
                 <label htmlFor="confirmPassword">Confimar Senha</label>
                 <InputStyled type="password" id="confirmPassword" placeholder="Confirme sua senha"  {...register("confirmPassword")}/>
-                {errors.confirmPassword?.message}
+                <span className="errors">
+                    {errors.confirmPassword?.message}
+                </span>
+                    
 
                 <label htmlFor="bio">Bio</label>
                 <InputStyled type="text" id="bio"placeholder="Digite aqui sobre voce" {...register("bio")}/>
-                {errors.bio?.message}
+                <span className="errors">
+                    {errors.bio?.message}
+                </span>
+                    
 
                 <label htmlFor="contact">Contato</label>
                 <InputStyled type="text" id="contact" placeholder="Opção de contato"{...register("contact")}/>
-                {errors.contact?.message}
+                <span className="errors">
+                    {errors.contact?.message}
+                </span>
                 
                 <label htmlFor="course_module">Selecione módulo</label>
                 <SelectStyled id="course_module" {...register("course_module")}>
@@ -119,7 +131,9 @@ export const SingUp =()=>{
                     <option value="Quarto módulo (Backend Avançado)">Quarto módulo</option>
                     
                 </SelectStyled>
-                {/* {errors.course_module?.message} */}
+                <span className="errors">
+                {errors.course_module?.message}
+                </span>
                
                 <button type="submit" className="btnSingForm">Cadastrar</button>
 
