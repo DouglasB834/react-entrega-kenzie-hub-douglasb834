@@ -1,16 +1,17 @@
 
 // import { HeaderHome } from "../../components/Header/headerHome/indx"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { instance } from "../../Api/instance"
+import { HeaderHome } from "../../components/Header/headerHome/indx"
 import { User } from "./componenents/User"
 import { MainStyled } from "./style"
 
 
 
 export const DashBoard =()=>{
-
-    useEffect(()=>{
-        
+    const navigate = useNavigate()
+    useEffect(()=>{        
         const token = localStorage.getItem("@token")
         instance.defaults.headers.authorization = `Bearer ${token}`
         instance.get(`/profile`)                
@@ -18,14 +19,19 @@ export const DashBoard =()=>{
             setUser(data)
         })
         .catch(error => console.log(error))
+        if(!token){
+            navigate("/")         
+        }
+
     },[])
 
-    const [user, setUser] = useState()
+    const [user, setUser] = useState({})
    
     
 
     return (
         <MainStyled>
+            {/* <HeaderHome/> */}
         <User user={user} />
         <div className="container">
             <section>
