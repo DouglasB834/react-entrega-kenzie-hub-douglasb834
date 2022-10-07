@@ -4,8 +4,8 @@ import 'animate.css';
 export const FormStyled = styled.form`
   width: 100%;
   max-width: 370px;
-
-  padding: .6rem;
+  border-radius: 5px;
+  padding: 1rem;
   margin-bottom: 2rem;
   animation-duration:.7s;
   
@@ -14,7 +14,13 @@ export const FormStyled = styled.form`
   flex-direction: column;
   justify-content: center;
   background-color: var(--grey-3);
-  
+
+  .errors{
+    color: #e71060 ;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
   .boxtitle{
     text-align: center;
     margin: 1rem 0;
@@ -41,6 +47,8 @@ export const FormStyled = styled.form`
     align-items: center;
     height: 5rem;
     margin-top: 1rem;
+    
+   
 
     p{
         font-size: var(--title2);
@@ -71,5 +79,31 @@ export const SelectStyled = styled.select`
   border: solid  2px var(--grey-1);
   color: var(--grey-0);
 
+`
+export const DivChangePsw = styled.div`
+  padding: 1rem;
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: var(--grey-2);
+  border: solid  2px var(--grey-1);
+  color: var(--grey-0);
+  transition: .3s linear;
+
+  .changeInput{
+    background-color: var(--grey-2);
+    border: none;
+    width: 90%;
+    color: var(--grey-0);
+  }
+
+  span{
+    color: var(--grey-1);
+    cursor: pointer;
+  }
+  span:hover{
+    color: var(--grey-0);
+    cursor: pointer;
+  }
 `
 
