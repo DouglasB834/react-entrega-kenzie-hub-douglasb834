@@ -6,15 +6,16 @@ align-items: center;
 width: 100%;
 height: 120px;
  max-width: 380px;
+ margin-right: 14px;
 /* max-width: ${({location}) => location === "/singup"? `${380}px` : `${780}px` }; */
 
-margin: 0 auto;
+
 .container{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+   
     .boxLogo{
         padding: 1rem ;
 

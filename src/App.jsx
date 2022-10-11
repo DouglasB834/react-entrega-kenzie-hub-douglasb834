@@ -1,21 +1,23 @@
-import { RoutesMain } from './Routes';
-import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
-import { useState } from 'react';
+import { RoutesMain } from "./Routes";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+import { DataProvider } from "./Context/DataContext/context";
+import { RequestProvide } from "./Context/ContexResquests";
+import { ModalProvide } from "./Context/ModalContext/modal";
 
-
-
-
-function App() {
-  const [values, setValues] = useState()
-  
+const App = () => {
+ 
   return (
-    <>
-      <div className="containeGeral">
-        <RoutesMain/>
-      </div>    
-    </>
+    <DataProvider>
+      <RequestProvide>
+      <ModalProvide>
+        <div className="containeGeral">
+          <RoutesMain />
+        </div>
+      </ModalProvide>
+      </RequestProvide>
+    </DataProvider>
   );
-}
+};
 
 export default App;
