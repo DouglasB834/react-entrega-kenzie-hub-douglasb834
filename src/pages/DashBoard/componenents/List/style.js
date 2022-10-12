@@ -11,6 +11,7 @@ export const LiStyled  =  styled.li`
     font-size: var(--titleList);
     background-color: var(--grey-4);
     cursor: pointer;
+    animation-duration: 1s;
 
     
     :focus{
@@ -23,7 +24,13 @@ export const LiStyled  =  styled.li`
     }
 
 
- 
+ .trash{
+    transition: .3s linear;
+    :hover{
+        color: var(--negative);
+    }
+ }
+
 
 `
 

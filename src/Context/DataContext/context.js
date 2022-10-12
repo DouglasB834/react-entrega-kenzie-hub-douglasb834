@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SucessLogin } from "../../Api";
 import { instance } from "../../Api/instance";
 
 export const DataContext = createContext({});
@@ -9,14 +10,37 @@ export const DataProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [isModal, setModal] = useState(false);
-  const showModal = () => {
-    setModal(false);
-  };
+  
+
+  const [closeAnimation, setCloseAnimation] =useState("")
+  const [deletAnimation, setDeletAnimation] =useState("animate__fadeInUp")
+  //teste
+  const [tech ,setTach] =useState([])
 
   const [loading, setLoading] = useState(true);
 
-  //lembra sempre que vc esta fazendo get post etc
-  //então deixa async await
+  const showModal = () => {
+    setCloseAnimation("containerCadstrar animate__flipOutY")
+    setTimeout(() => {
+      setModal(false);
+    }, 650);
+
+  };
+
+  const add =()=>{
+    setModal(true)
+    setCloseAnimation("containerCadstrar animate__flipInY")
+  }
+
+  const deleteTech =(id)=>{
+    try {
+      instance.delete(`/users/techs/${id}`)
+      SucessLogin("deletado com sucesso")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
   useEffect(() => {
     const loginUser = async () => {
       if (token) {
@@ -31,13 +55,14 @@ export const DataProvider = ({ children }) => {
       }
       setLoading(false);
     };
-
     loginUser()
   }, []);
 
+  // console.log(tech)
+
   return (
     <DataContext.Provider
-      value={{ navigate, token, user,setUser, isModal, setModal,  loading, showModal }}
+      value={{ navigate, token, user,setUser, isModal, setModal,  loading, showModal,closeAnimation, add, deleteTech, deletAnimation}}
     >
       {children}
     </DataContext.Provider>

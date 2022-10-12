@@ -5,11 +5,9 @@ import { IoIosAddCircle } from "react-icons/io";
 import { DataContext } from '../../../../Context/DataContext/context';
 
 export const AddTec = () => {
-  const {setModal } = useContext(DataContext);
+  const {add } = useContext(DataContext);
 
-  const add =()=>{
-    setModal(true)
-  }
+
 
   return (
     <DivAddStyled>

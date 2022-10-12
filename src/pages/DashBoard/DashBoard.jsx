@@ -19,7 +19,7 @@ export const DashBoard = () => {
   // }, []);
 
   if (loading) {
-    return null;
+    return <img src={Loading} alt="" />
   }
 
   return (
@@ -32,7 +32,6 @@ export const DashBoard = () => {
           </BaseMdal>
 
           <User user={user} />
-
           <DivContainer className="container">
             <SectionStyled>
               <AddTec />
@@ -40,7 +39,7 @@ export const DashBoard = () => {
             </SectionStyled>
           </DivContainer>
           {/* modal  */}
-          <ModaEdite/>
+          {/* <ModaEdite/> */}
         </>
       ) : (
         navigate("/")

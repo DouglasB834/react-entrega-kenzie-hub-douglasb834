@@ -15,7 +15,7 @@ export const RequestProvide = ({ children }) => {
 
       const id = userResponse.id;
       setUser(userResponse);
-      SucessLogin();
+      SucessLogin("Logando...")
       localStorage.setItem("@hub:id", id);
       localStorage.setItem("@hub:token", token);
       navigate(`/dashboard/user/${id}`, { replace: true });

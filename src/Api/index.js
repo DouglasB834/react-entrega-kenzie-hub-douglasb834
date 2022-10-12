@@ -16,7 +16,7 @@ export const SucessRegister =()=>{
 export const NegativeRergister= (text)=>{
     toast.error(text, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 600,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -27,8 +27,8 @@ export const NegativeRergister= (text)=>{
         });
 }
 
-export const SucessLogin =()=>{
-    toast.success("✅Logando", {
+export const SucessLogin =(text)=>{
+    toast.success(text, {
         position: "top-right",
         autoClose: 700,
         hideProgressBar: false,
@@ -39,6 +39,7 @@ export const SucessLogin =()=>{
         toastId: "customId"
         });
     }
+    
 export  const NegativeLogin= ()=>{
     toast.error("email ou Senha Invalido", {
         position: "top-right",
