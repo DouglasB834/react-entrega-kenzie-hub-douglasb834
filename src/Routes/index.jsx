@@ -13,8 +13,7 @@ export const RoutesMain = () => (
 
         <Route path="/dashboard" element={<DashBoard />}>
           <Route path="/dashboard/user/:id" element={<DashBoard />} />
-        </Route>  
-             
+        </Route>               
     </Route>
 
     <Route path="*" element={<NotFound />} />

@@ -6,7 +6,7 @@ position: fixed;
 z-index: 101;
 width: 100%;
 height: 100vh;
-inset: 0; /* seta que vai ter 0 espaço em todas as tdireções */
+inset: 0; 
 
 background-color: var(--bg-modal);
 `
@@ -26,10 +26,7 @@ transition: 2s;
 .containerCadstrar{
  animation-duration: .7s;
 }
-
-
 `
-
 export const DivtitleModal = styled.div`
     height: 40px;
     display: flex;

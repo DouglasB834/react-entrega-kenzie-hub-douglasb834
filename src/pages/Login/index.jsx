@@ -25,8 +25,7 @@ export const Login =()=>{
         if(token){
             navigate(`/dashboard/user/${id}`)
         }
-    },[])
-    
+    },[])  
  
     const [changePsw, setChangePsw] = useState(false) 
 
@@ -65,7 +64,6 @@ export const Login =()=>{
                 <span className="errors">
                     {errors.password?.message}
                 </span>
-
              
                 <button  type="submit" className="btnLogin">Entrar</button>
 
@@ -77,8 +75,6 @@ export const Login =()=>{
             </FormStyled>
 
         </DivStyled>
-
     )
-
 
 }

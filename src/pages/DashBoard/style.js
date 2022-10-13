@@ -24,20 +24,10 @@ export const MainStyled = styled.main`
             justify-content: space-between;
             width: 100%;
             max-width: 732px;
-
-           /* div{
-            width: 100%;
-            text-align: start;
-           } */
         }
     }
 
-.teste{
-   
-}
-
 `;
-
 
 export const DivContainer = styled.div`
     display: flex;
