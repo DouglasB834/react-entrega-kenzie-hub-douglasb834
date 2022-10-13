@@ -26,10 +26,7 @@ const {register, handleSubmit} = useForm({
 const update =(data)=>{ 
   atualizar(data)
   closeModalEdit(false)
- 
 }
-
-// console.log(getUpdate)
 
   return (
     <>
@@ -47,7 +44,7 @@ const update =(data)=>{
               <FormStyled onSubmit={( handleSubmit(update))}>
                 <label htmlFor="tech">techs</label>
 
-                <InputStyled value={getUpdate.title}  placeholder="tech" />
+                <InputStyled  placeholder={getUpdate.title} disabled/>
 
 
                 <label htmlFor="status">Status</label>

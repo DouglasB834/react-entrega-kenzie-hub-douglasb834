@@ -10,9 +10,9 @@ export const UserSchema =  yup.object().shape({
        .matches(/(\d)/, "Deve conter ao menos 1 número")
        .matches(/(\W)|_/, "Deve conter ao menos 1 caracater especial")
        .matches(/.{8,}/, "Deve conter no minimo 8 caracater"),
-       confirmPassword: yup.string().required("password Obrigatório").oneOf([yup.ref("password")],"Senha não confere"),
-       bio: yup.string().required("Compo Obrigatório"),
-       contact: yup.string().required("Compo de contato Obrigatorio"),
+       confirmPassword: yup.string().required("Senha obrigatório").oneOf([yup.ref("password")],"Senha não confere"),
+       bio: yup.string().required("Campo Obrigatório"),
+       contact: yup.string().required("Campo de contato obrigatorio"),
        course_module: yup.string().required("Selecione um modulo de Curso")
 })
 

@@ -8,8 +8,6 @@ export  const ModalProvide = ({children})=>{
     const {setVerificar} = useContext(DataContext)  
     const [showEditModal, setShowEditModal] = useState(false)
     const [animation, setAnimation] =useState("")
-
-
     const [getUpdate, setTgetUpdate] = useState();
 
     const openModalEdit =()=>{
@@ -23,9 +21,8 @@ export  const ModalProvide = ({children})=>{
         },800)
     }
      const atualizar = async (data)=>{
-        console.log(data)
         try {
-            instance.put(`/users/techs/${getUpdate.id}`,data);  
+            instance.put(`/users/techs/${getUpdate.id}`, data);  
             SucessLogin("atulizado")
             setVerificar()
         } catch (error) {
