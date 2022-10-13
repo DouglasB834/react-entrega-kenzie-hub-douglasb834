@@ -48,7 +48,6 @@ export const FormStyled = styled.form`
     height: 5rem;
     margin-top: 1rem;
     
-   
 
     p{
         font-size: var(--title2);
@@ -93,11 +92,12 @@ export const DivChangePsw = styled.div`
   .changeInput{
     background-color: var(--grey-2);
     border: none;
-    width: 90%;
+    width: 86%;
     color: var(--grey-0);
   }
 
   span{
+    font-size: 1rem;
     color: var(--grey-1);
     cursor: pointer;
   }
