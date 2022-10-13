@@ -9,7 +9,8 @@ export  const ModalProvide = ({children})=>{
     const [showEditModal, setShowEditModal] = useState(false)
     const [animation, setAnimation] =useState("")
 
-    const [getID, setGetID] = useState("");
+
+    const [getUpdate, setTgetUpdate] = useState();
 
     const openModalEdit =()=>{
         setShowEditModal(true)
@@ -22,9 +23,11 @@ export  const ModalProvide = ({children})=>{
         },800)
     }
      const atualizar = async (data)=>{
+        console.log(data)
         try {
-            instance.put(`/users/techs/${data}`);  
+            instance.put(`/users/techs/${getUpdate.id}`,data);  
             SucessLogin("atulizado")
+            setVerificar()
         } catch (error) {
             console.log(error)
         }
@@ -53,7 +56,7 @@ export  const ModalProvide = ({children})=>{
     }
 
     return(
-        <ModalContext.Provider value={{showEditModal,setShowEditModal , openModalEdit, closeModalEdit,animation, addListTecnologias , deleteTech, getID, setGetID, atualizar}}>
+        <ModalContext.Provider value={{showEditModal,setShowEditModal , openModalEdit, closeModalEdit,animation, addListTecnologias , deleteTech, getUpdate, setTgetUpdate, atualizar}}>
             {children}
         </ModalContext.Provider>
     )
