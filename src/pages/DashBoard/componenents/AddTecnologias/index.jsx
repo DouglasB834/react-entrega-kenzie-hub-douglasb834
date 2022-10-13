@@ -7,8 +7,6 @@ import { DataContext } from '../../../../Context/DataContext/context';
 export const AddTec = () => {
   const {add } = useContext(DataContext);
 
-
-
   return (
     <DivAddStyled>
         <h4>Tecnologias</h4>

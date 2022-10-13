@@ -4,19 +4,25 @@ import { useContext } from "react";
 import { ModalContext } from "../../../../Context/ModalContext/modal";
 import { DataContext } from "../../../../Context/DataContext/context";
 import { ModaEdite } from "../BaseModal/ModalEdite";
+import { GrDocumentUpdate } from "react-icons/gr";
 
 export const List = ({ tech }) => {
-  const {openModalEdit } = useContext(ModalContext);
-  const { deleteTech ,deletAnimation } = useContext(DataContext);
-//  onClick={() => openModalEdit()}
+  const { openModalEdit, deleteTech} = useContext(ModalContext);
+  const { deletAnimation } = useContext(DataContext);
+  //  onClick={() => openModalEdit()} tentar atualizar
+  console.log(tech)
   return (
-    <LiStyled className={deletAnimation}  >
+    <LiStyled id={tech.id} className={deletAnimation}>
       <h4>{tech?.title} </h4>
+      <span className="atualizar" onClick={() => openModalEdit()}>
+        <GrDocumentUpdate />
+      </span>
+
       <DivList>
         <p>Nivel: {tech?.status}</p>
-        <FaRegTrashAlt className="trash" onClick={()=>deleteTech(tech.id)} />
+        <FaRegTrashAlt className="trash" onClick={() => deleteTech(tech.id)}/>
       </DivList>
-      <ModaEdite tech={tech.id}/>
+      <ModaEdite tech={tech}/>
     </LiStyled>
   );
 };

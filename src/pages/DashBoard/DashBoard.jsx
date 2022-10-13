@@ -12,12 +12,6 @@ import { ModaEdite } from "./componenents/BaseModal/ModalEdite";
 export const DashBoard = () => {
   const { navigate, loading, user, token } = useContext(DataContext);
 
-  // useEffect(() => {
-  //   if (!token) {
-  //     navigate("/");
-  //   }
-  // }, []);
-
   if (loading) {
     return <img src={Loading} alt="" />
   }
@@ -39,7 +33,7 @@ export const DashBoard = () => {
             </SectionStyled>
           </DivContainer>
           {/* modal  */}
-          {/* <ModaEdite/> */}
+          <ModaEdite/>
         </>
       ) : (
         navigate("/")

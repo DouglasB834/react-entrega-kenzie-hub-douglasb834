@@ -15,7 +15,6 @@ export const ModalAddtec = () => {
   const schema = yup.object().shape({
     title: yup.string().required(),
     status: yup.string().required()
-
   })
 
   const {register, handleSubmit} = useForm({
@@ -23,8 +22,7 @@ export const ModalAddtec = () => {
   })
 
   const submit= (data)=>{
-    addListTecnologias(data)
-     
+    addListTecnologias(data)    
   }
 
   return (    
@@ -42,8 +40,9 @@ export const ModalAddtec = () => {
         <InputStyled id="title" placeholder="Digite a linguagem de programação" {...register("title")} />
         
         <label htmlFor="status">Selecionar status</label>
+        
         <SelectStyled id="status" {...register("status")}>
-          <option >Selecione o nivel</option>
+          {/* <option>Selecione o nivel</option> */}
           <option value="Iniciante">Iniciante</option>
           <option value="Intermediário">Intermediário</option>
           <option value="Avançado">Avançado</option>  

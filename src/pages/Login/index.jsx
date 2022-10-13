@@ -19,22 +19,6 @@ export const Login =()=>{
         resolver:  yupResolver(loginSchema)
     })
     
-    // const submitLogin =(data)=>{
-    //     instance.post(`/sessions/`, data)
-    //     .then(res=>{
-    //         localStorage.setItem("@hub:id", res.data.user.id)
-    //         localStorage.setItem("@hub:token",res.data.token)
-    //         SucessLogin()
-    //         setTimeout(()=>{
-    //             navigate(`/dashboard/user/${user.id}`)
-    //         },1000)
-    //     })
-    //     .catch(error =>{
-    //         NegativeLogin()
-    //         console.log(error)
-    //     })
-    // }
-
     const token = localStorage.getItem("@hub:token")
     const id = localStorage.getItem("@hub:id")
     useEffect(()=>{

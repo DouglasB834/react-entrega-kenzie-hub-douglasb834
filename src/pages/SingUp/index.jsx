@@ -14,9 +14,7 @@ import { ImEye } from "react-icons/im";
 import { GiEyelashes } from "react-icons/gi";
 import { RequestContext } from "../../Context/ContexResquests";
 
-export const SingUp = () => {
-  const [loading, setLoading] = useState(false);
-  
+export const SingUp = () => { 
   const {
     register,
     handleSubmit,
@@ -65,6 +63,7 @@ export const SingUp = () => {
             placeholder="Digite password"
             {...register("password")}
           />
+         
           <span>
             {changePsw ? (
               <ImEye onClick={() => setChangePsw(false)} />
@@ -73,6 +72,7 @@ export const SingUp = () => {
             )}
           </span>
         </DivChangePsw>
+        <span className="errors">{errors.password?.message}</span>
 
         <label htmlFor="confirmPassword">Confimar Senha</label>
         <InputStyled

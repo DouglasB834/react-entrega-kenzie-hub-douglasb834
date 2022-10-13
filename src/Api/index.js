@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 export const SucessRegister =()=>{
     toast.success("✅ Cadastro realizado com suceso", {
         position: "top-right",
-        autoClose: 800,
+        autoClose: 600,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -30,7 +30,7 @@ export const NegativeRergister= (text)=>{
 export const SucessLogin =(text)=>{
     toast.success(text, {
         position: "top-right",
-        autoClose: 700,
+        autoClose: 400,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

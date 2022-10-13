@@ -8,10 +8,8 @@ width: 100%;
 height: 100vh;
 inset: 0; /* seta que vai ter 0 espaço em todas as tdireções */
 
-
 background-color: var(--bg-modal);
 `
-
 export const OverlayStyled = styled.div`
 width: 100%;
 height: 100vh;

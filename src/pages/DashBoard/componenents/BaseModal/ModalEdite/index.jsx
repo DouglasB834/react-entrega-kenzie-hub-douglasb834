@@ -2,18 +2,30 @@ import React, { useContext } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import {
   FormStyled,
-  InputStyled,
   SelectStyled,
 } from "../../../../../components/Form/Style";
 import { DataContext } from "../../../../../Context/DataContext/context";
 import { ModalContext } from "../../../../../Context/ModalContext/modal";
 import { DivtitleModal, ModalStyled, OverlayStyled } from "../style";
 import { DivModalEdite } from "./style";
+import * as yup from "yup"
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export const ModaEdite = ({tech}) => {
-  const { showEditModal, closeModalEdit,animation } = useContext(ModalContext);
-  const { deleteTech, user } = useContext(DataContext);
+  const { showEditModal, closeModalEdit,animation, atualizar, deleteTech } = useContext(ModalContext);
  
+ const schema = yup.object().shape({
+    status: yup.string().required("Nivel Obrigatório")
+ })
+
+const {register, handleSubmit} = useForm({
+  resolver: yupResolver(schema)
+})
+const update =(data)=>{
+  atualizar(data)
+}
+
   return (
     <>
       {showEditModal && (
@@ -28,15 +40,9 @@ export const ModaEdite = ({tech}) => {
               </DivtitleModal>
 
               <FormStyled onSubmit={(event)=> event.preventDefault()}>
-                <label htmlFor="tec">Nome do Projeto</label>
-                <InputStyled
-                  id="tec"
-                  type="text"
-                  placeholder="exemplo Material Ul"
-                />
-
+              
                 <label htmlFor="status">Status</label>
-                <SelectStyled>
+                <SelectStyled {...register("status")}>
                   <option>Selcione Nivel</option>
                   <option value="Iniciante">Iniciante</option>
                   <option value="Intermediário">Intermediário</option>
@@ -44,7 +50,8 @@ export const ModaEdite = ({tech}) => {
                 </SelectStyled>
                 <div className="containerBtn">
                   <button className="btnSingForm">Salvar alterações</button>
-                  <button className="delitetec" onClick={()=>deleteTech(tech)} >Excluir</button>
+
+                  <button className="delitetec" onClick={()=>deleteTech(tech.id)} >Excluir</button>
                 </div>
               </FormStyled>
             </DivModalEdite>

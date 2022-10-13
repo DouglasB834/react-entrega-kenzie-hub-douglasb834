@@ -6,15 +6,14 @@ import { RequestProvide } from "./Context/ContexResquests";
 import { ModalProvide } from "./Context/ModalContext/modal";
 
 const App = () => {
- 
   return (
     <DataProvider>
       <RequestProvide>
-      <ModalProvide>
-        <div className="containeGeral">
-          <RoutesMain />
-        </div>
-      </ModalProvide>
+        <ModalProvide>
+          <div className="containeGeral">
+            <RoutesMain />
+          </div>
+        </ModalProvide>
       </RequestProvide>
     </DataProvider>
   );

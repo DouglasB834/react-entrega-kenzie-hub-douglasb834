@@ -4,14 +4,13 @@ import { UlcardStyled } from './style'
 import { DataContext } from "../../../../Context/DataContext/context"
 
 const Card = () => {
-  const { user}= useContext(DataContext)
-  console.log(user)
+  const { user }= useContext(DataContext)
+  // console.log(user)
   return (
     <UlcardStyled>
       {
         user.techs.map(tech =>(
-        <List key={tech.id} tech={tech}/>
-          
+        <List key={tech.id} tech={tech}/>          
         ))
       }
     </UlcardStyled>
