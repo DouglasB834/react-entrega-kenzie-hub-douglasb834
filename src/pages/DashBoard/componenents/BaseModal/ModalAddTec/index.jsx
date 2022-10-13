@@ -13,7 +13,7 @@ export const ModalAddtec = () => {
   const { addListTecnologias}= useContext(ModalContext)
 
   const schema = yup.object().shape({
-    title: yup.string().required(),
+    title: yup.string().required().uppercase(),
     status: yup.string().required()
   })
 

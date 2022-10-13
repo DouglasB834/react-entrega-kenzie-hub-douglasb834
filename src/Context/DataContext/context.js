@@ -15,7 +15,7 @@ export const DataProvider = ({ children }) => {
   const [closeAnimation, setCloseAnimation] =useState("")
   const [deletAnimation, setDeletAnimation] =useState("animate__fadeInUp")
   const [loading, setLoading] = useState(true);
-
+  
 
   const showModal = () => {
     setCloseAnimation("containerCadstrar animate__flipOutY")

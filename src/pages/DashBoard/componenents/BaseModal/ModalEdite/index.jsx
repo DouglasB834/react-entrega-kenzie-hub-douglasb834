@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import {
   FormStyled,
+  InputStyled,
   SelectStyled,
 } from "../../../../../components/Form/Style";
 import { DataContext } from "../../../../../Context/DataContext/context";
@@ -12,8 +13,8 @@ import * as yup from "yup"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-export const ModaEdite = ({tech}) => {
-  const { showEditModal, closeModalEdit,animation, atualizar, deleteTech } = useContext(ModalContext);
+export const ModaEdite = () => {
+  const { showEditModal, closeModalEdit,animation, atualizar, deleteTech,  getUpdate } = useContext(ModalContext);
  
  const schema = yup.object().shape({
     status: yup.string().required("Nivel Obrigatório")
@@ -22,8 +23,9 @@ export const ModaEdite = ({tech}) => {
 const {register, handleSubmit} = useForm({
   resolver: yupResolver(schema)
 })
-const update =(data)=>{
+const update =(data)=>{ 
   atualizar(data)
+  closeModalEdit(false)
 }
 
   return (
@@ -39,8 +41,12 @@ const update =(data)=>{
                 </span>
               </DivtitleModal>
 
-              <FormStyled onSubmit={(event)=> event.preventDefault()}>
-              
+              <FormStyled onSubmit={( handleSubmit(update))}>
+                <label htmlFor="tech">techs</label>
+
+                <InputStyled  placeholder={getUpdate.title} disabled/>
+
+
                 <label htmlFor="status">Status</label>
                 <SelectStyled {...register("status")}>
                   <option>Selcione Nivel</option>
@@ -51,7 +57,11 @@ const update =(data)=>{
                 <div className="containerBtn">
                   <button className="btnSingForm">Salvar alterações</button>
 
-                  <button className="delitetec" onClick={()=>deleteTech(tech.id)} >Excluir</button>
+                  <button className="delitetec" onClick={()=>{
+                    deleteTech(getUpdate.id)
+                    closeModalEdit(false)
+                    
+                    }} >Excluir</button>
                 </div>
               </FormStyled>
             </DivModalEdite>
