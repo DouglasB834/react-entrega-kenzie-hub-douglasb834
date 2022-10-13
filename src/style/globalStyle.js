@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-
 export const GlobalStyle = createGlobalStyle`
 
 html, body, div, span, applet, object, iframe,
@@ -74,11 +73,13 @@ input{
 /* Feedback Palette */
     --sucess: #3FE864;
     --negative: #E83F5B;
+    --bg-modal: rgba(0,0,0, .35);
 
     /* Typography */
     --title: 1.12rem ;//16px
     --title1: 1rem ;//16px
     --title2: .75rem;//12px
+    --titleList: .9rem;//12px
     
 
 }
@@ -103,13 +104,14 @@ input{
 	color: var(--grey-0);
 	margin-bottom: 1rem;
 }
+
 .btnSingForm{
 	background-color: var(--color-primary-Negative);
 }
+
 .btnSingForm:hover{
 	background-color: var(--color-primary);
 }
-
 
 .singUp{
 	background-color: var(--grey-1);
