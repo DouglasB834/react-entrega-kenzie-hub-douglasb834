@@ -32,6 +32,7 @@ export const ModalProvide = ({ children }) => {
 
   const deleteTech = (id) => {
     try {
+      instance.defaults.headers.authorization = `Bearer ${token}`;
       instance.delete(`/users/techs/${id}`);
       SucessLogin("deletado com sucesso");
       setVerificar();
