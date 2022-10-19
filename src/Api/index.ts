@@ -1,5 +1,7 @@
 import { toast } from "react-toastify";
 
+
+
 export const SucessRegister =()=>{
     toast.success("✅ Cadastro realizado com suceso", {
         position: "top-right",
@@ -13,7 +15,7 @@ export const SucessRegister =()=>{
         });
 }
 
-export const NegativeRergister= (text)=>{
+export const NegativeRergister= (text:string)=>{
     toast.error(text, {
         position: "top-right",
         autoClose: 600,
@@ -27,7 +29,7 @@ export const NegativeRergister= (text)=>{
         });
 }
 
-export const SucessLogin =(text)=>{
+export const SucessLogin =(text:string)=>{
     toast.success(text, {
         position: "top-right",
         autoClose: 400,

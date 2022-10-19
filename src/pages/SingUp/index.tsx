@@ -14,18 +14,28 @@ import { ImEye } from "react-icons/im";
 import { GiEyelashes } from "react-icons/gi";
 import { RequestContext } from "../../Context/ContexResquests";
 
-export const SingUp = () => { 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+interface iErros{
+  name :string;
+  email :string;
+  password :string;
+  confirmPassword :string;
+  bio :string;
+  contact :string;
+  course_module:string
+}
+
+
+
+
+export const SingUp = () => {   
+  const { register , handleSubmit, formState: { errors }} = useForm <iErros> ({
     resolver: yupResolver(UserSchema),
-  });
+  } );
 
   const { onSubmitRegister} = useContext(RequestContext);
 
   const [changePsw, setChangePsw] = useState(false);
+
   return (
     <DivStyled>
       <FormStyled
@@ -44,7 +54,7 @@ export const SingUp = () => {
           placeholder="Digite aqui seu nome"
           {...register("name")}
         />
-        <span className="errors">{errors.name?.message}</span>
+        <span className="errors">{errors.name?.message  }</span>
 
         <label htmlFor="email">Email</label>
         <InputStyled
@@ -103,7 +113,9 @@ export const SingUp = () => {
         <span className="errors">{errors.contact?.message}</span>
 
         <label htmlFor="course_module">Selecione módulo</label>
+
         <SelectStyled id="course_module" {...register("course_module")}>
+          
           <option value="Primeiro módulo (Introdução ao Frontend)">
             Primeiro módulo
           </option>

@@ -4,11 +4,15 @@ import { instance } from "../../Api/instance";
 import { DataContext } from "../DataContext/context";
 
 export const ModalContext = createContext({});
+
+
 export const ModalProvide = ({ children }) => {
-  const { setVerificar, token } = useContext(DataContext);
+  const {token, user, setUser, tecList, setTecList} = useContext(DataContext);
   const [showEditModal, setShowEditModal] = useState(false);
   const [animation, setAnimation] = useState("");
   const [getUpdate, setTgetUpdate] = useState();
+
+ 
 
   const openModalEdit = () => {
     setShowEditModal(true);
@@ -22,9 +26,11 @@ export const ModalProvide = ({ children }) => {
   };
   const atualizar = async (data) => {
     try {
-      instance.put(`/users/techs/${getUpdate.id}`, data);
+   
+      const res = await instance.put(`/users/techs/${getUpdate.id}`, data);
       SucessLogin("atulizado");
-      setVerificar();
+      
+      setTecList((oldTech)=>[...oldTech, res.data ])
     } catch (error) {
       console.log(error);
     }
@@ -32,10 +38,12 @@ export const ModalProvide = ({ children }) => {
 
   const deleteTech = (id) => {
     try {
+      const filter = tecList.filter(tech => tech.id !== id)
       instance.defaults.headers.authorization = `Bearer ${token}`;
-      instance.delete(`/users/techs/${id}`);
+       instance.delete(`/users/techs/${id}`);
       SucessLogin("deletado com sucesso");
-      setVerificar();
+      
+      setTecList(filter)
     } catch (error) {
       console.log(error);
     }
@@ -46,8 +54,8 @@ export const ModalProvide = ({ children }) => {
       instance.defaults.headers.authorization = `Bearer ${token}`;
       const res = await instance.post(`/users/techs`, data);
       SucessLogin("Cadastrodo com sucesso");
-      console.log(res);
-      setVerificar();
+      // setVerificar();
+      setTecList((oldTech)=>[...oldTech, res.data ])
     } catch (error) {
       NegativeRergister("select nivel/ tech ja existente");
       console.log(error);

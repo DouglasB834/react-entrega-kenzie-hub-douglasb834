@@ -5,12 +5,12 @@ import { DataContext } from "../../../../Context/DataContext/context";
 
 
 const Card = () => {
-  const { user } = useContext(DataContext);
+  const { user, tecList } = useContext(DataContext);
 
   return (
     <UlcardStyled>
-      {user.techs.map((tech) => ( 
-        <List tech={tech}/> ))}
+      {tecList.map((tech) => ( 
+        <List key={tech.id} tech={tech}/> ))}
     </UlcardStyled>
   );
 };
