@@ -5,13 +5,13 @@ import {
   InputStyled,
   SelectStyled,
 } from "../../../../../components/Form/Style";
-import { DataContext } from "../../../../../Context/DataContext/context";
 import { ModalContext } from "../../../../../Context/ModalContext/modal";
 import { DivtitleModal, ModalStyled, OverlayStyled } from "../style";
 import { DivModalEdite } from "./style";
 import * as yup from "yup"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { IStataUpdade } from "../../../../../Interface.services/InterfaceModal";
 
 export const ModaEdite = () => {
   const { showEditModal, closeModalEdit,animation, atualizar, deleteTech,  getUpdate } = useContext(ModalContext);
@@ -20,12 +20,13 @@ export const ModaEdite = () => {
     status: yup.string().required("Nivel Obrigatório")
  })
 
-const {register, handleSubmit} = useForm({
+
+const {register, handleSubmit} = useForm<IStataUpdade>({
   resolver: yupResolver(schema)
 })
-const update =(data)=>{ 
+const update =(data:IStataUpdade)=>{ 
   atualizar(data)
-  closeModalEdit(false)
+  closeModalEdit()
 }
 
   return (
@@ -59,7 +60,7 @@ const update =(data)=>{
 
                   <button className="delitetec" onClick={()=>{
                     deleteTech(getUpdate.id)
-                    closeModalEdit(false)
+                    closeModalEdit()
                     
                     }} >Excluir</button>
                 </div>

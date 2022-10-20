@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { FieldValues } from "react-hook-form";
 import { NegativeRergister, SucessLogin } from "../../Api";
 import { instance } from "../../Api/instance";
 import { addTEch, IModalProvid, IStataUpdade } from "../../Interface.services/InterfaceModal";
@@ -36,7 +37,7 @@ export const ModalProvide = ({ children }:IChildren) => {
     }
   };
 
-  const deleteTech = (id:string) => {
+  const deleteTech = ( id:string) => {
     try {
       const filter = tecList.filter(tech => tech.id !== id)
       instance.defaults.headers.authorization = `Bearer ${token}`;
@@ -48,7 +49,7 @@ export const ModalProvide = ({ children }:IChildren) => {
     }
   };
 
-  const addListTecnologias = async (data: addTEch ) => {
+  const addListTecnologias = async (data: FieldValues ) => {
     try {
       instance.defaults.headers.authorization = `Bearer ${token}`;
       const res = await instance.post(`/users/techs`, data);

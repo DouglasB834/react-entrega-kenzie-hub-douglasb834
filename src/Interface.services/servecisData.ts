@@ -6,14 +6,13 @@ export interface IPropsValue {
     setUser:Dispatch<SetStateAction<IUser>>
     setModal: Dispatch<SetStateAction<boolean>>,
     isModal: boolean,
-
     loading: boolean;
     closeAnimation:string,
     deletAnimation:string,
     tecList:ITechs[],
     setTecList:Dispatch<SetStateAction<ITechs[]>>
     navigate:NavigateFunction,
-    showModal?: ()=>void,
+    showModal: ()=>void,
     add :()=>void,
     token:string | null
 
