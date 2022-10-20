@@ -1,16 +1,19 @@
 import { createContext, useContext, useState } from "react";
 import { NegativeRergister, SucessLogin } from "../../Api";
 import { instance } from "../../Api/instance";
+import { addTEch, IModalProvid, IStataUpdade } from "../../Interface.services/InterfaceModal";
+import { IChildren } from "../../Interface.services/servecisData";
 import { DataContext } from "../DataContext/context";
 
-export const ModalContext = createContext({});
+export const ModalContext = createContext({}as IModalProvid );
 
 
-export const ModalProvide = ({ children }) => {
-  const {token, user, setUser, tecList, setTecList} = useContext(DataContext);
+export const ModalProvide = ({ children }:IChildren) => {
+  const {token, tecList, setTecList} = useContext(DataContext);
+
   const [showEditModal, setShowEditModal] = useState(false);
   const [animation, setAnimation] = useState("");
-  const [getUpdate, setTgetUpdate] = useState();
+  const [getUpdate, setTgetUpdate] = useState<IStataUpdade>({} as IStataUpdade);
 
  
 
@@ -24,10 +27,10 @@ export const ModalProvide = ({ children }) => {
       setShowEditModal(false);
     }, 800);
   };
-  const atualizar = async (data) => {
+  const atualizar = async (data: IStataUpdade) => {
     try {
    
-      const res = await instance.put(`/users/techs/${getUpdate.id}`, data);
+      const res = await instance.put(`/users/techs/${getUpdate.id }`, data);
       SucessLogin("atulizado");
       
       setTecList((oldTech)=>[...oldTech, res.data ])
@@ -36,7 +39,7 @@ export const ModalProvide = ({ children }) => {
     }
   };
 
-  const deleteTech = (id) => {
+  const deleteTech = (id:string) => {
     try {
       const filter = tecList.filter(tech => tech.id !== id)
       instance.defaults.headers.authorization = `Bearer ${token}`;
@@ -49,7 +52,7 @@ export const ModalProvide = ({ children }) => {
     }
   };
 
-  const addListTecnologias = async (data) => {
+  const addListTecnologias = async (data: addTEch | undefined) => {
     try {
       instance.defaults.headers.authorization = `Bearer ${token}`;
       const res = await instance.post(`/users/techs`, data);

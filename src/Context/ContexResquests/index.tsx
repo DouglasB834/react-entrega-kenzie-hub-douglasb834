@@ -1,11 +1,12 @@
 import { createContext, useContext } from "react";
 import { NegativeLogin, NegativeRergister, SucessLogin, SucessRegister } from "../../Api";
 import { instance } from "../../Api/instance";
-import { IChildren, IPropsValue, IUser } from "../../Interface.services/servecis";
+import { iRequestProvid} from "../../Interface.services/requestInterface";
+import { IChildren,IUser } from "../../Interface.services/servecisData";
 import { DataContext } from "../DataContext/context";
 
 
-export const RequestContext = createContext({} as IPropsValue);
+export const RequestContext = createContext({} as iRequestProvid);
 
 export const RequestProvide = ({ children }:IChildren) => {
   const { navigate, user, setUser } = useContext(DataContext);
@@ -13,6 +14,7 @@ export const RequestProvide = ({ children }:IChildren) => {
   const submitLogin = async (data: IUser) => {
     try {
       const response = await instance.post(`/sessions/`, data);
+      // const response = onLoging(data)
       const { user: userResponse, token } = response.data;
       const id = userResponse.id;
       setUser(userResponse);

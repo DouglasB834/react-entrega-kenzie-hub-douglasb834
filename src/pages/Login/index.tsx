@@ -10,17 +10,19 @@ import { GiEyelashes } from "react-icons/gi";
 import { loginSchema } from "./loginValidador"
 import { DataContext } from "../../Context/DataContext/context"
 import { RequestContext } from "../../Context/ContexResquests"
+import { IUser } from "../../Interface.services/servecisData"
 export const Login =()=>{
     const {navigate} =useContext(DataContext)
     
     const { submitLogin} =useContext(RequestContext)
 
-    const { register, handleSubmit, formState:{errors}} = useForm({
+    const { register, handleSubmit, formState:{errors}} = useForm <IUser>({
         resolver:  yupResolver(loginSchema)
     })
     
     const token = localStorage.getItem("@hub:token")
     const id = localStorage.getItem("@hub:id")
+
     useEffect(()=>{
         if(token){
             navigate(`/dashboard/user/${id}`)
