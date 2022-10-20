@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const HeaderStyledHome = styled.header`
 display: flex; 
 align-items: center;
@@ -7,9 +8,8 @@ width: 100%;
 height: 120px;
  max-width: 380px;
  margin-right: 14px;
-/* max-width: ${({location}) => location === "/singup"? `${380}px` : `${780}px` }; */
 
-
+ 
 .container{
     width: 100%;
     display: flex;

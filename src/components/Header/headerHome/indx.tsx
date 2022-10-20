@@ -2,10 +2,17 @@ import logo from "../../../assets/Logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { DivstyledHeader, HeaderStyled, HeaderStyledHome } from "./style";
 
+// interface iPropsHeader{
+//   locations:string
+//   onClick: ()=>void
+// }
+
+
 export const HeaderHome = () => {
+  
   const location = useLocation();
 
-  const back = (event) => {
+  const back = () => {
     localStorage.removeItem("@hub:token");
     localStorage.removeItem("@hub:id");
   };
@@ -13,7 +20,7 @@ export const HeaderHome = () => {
   return (
     <>
       {location.pathname === "/singup" ? (
-        <HeaderStyledHome location={location.pathname}>
+        <HeaderStyledHome >
           <div className="container">
             <div className="boxLogo">
               <img src={logo} alt="Logo" />

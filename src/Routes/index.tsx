@@ -7,7 +7,7 @@ import { SingUp } from "../pages/SingUp";
 
 export const RoutesMain = () => (
   <Routes>
-    <Route exect index element={<Login />} />
+    <Route  index element={<Login />} />
     <Route path="/" element={<HeaderHome />}>
       <Route path="/singup" element={<SingUp />} />
 

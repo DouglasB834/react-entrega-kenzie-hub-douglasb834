@@ -1,5 +1,3 @@
-
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Error from "../../assets/404Error.gif"
 import {DivErrorStyled } from './style'

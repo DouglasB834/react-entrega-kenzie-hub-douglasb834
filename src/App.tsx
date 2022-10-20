@@ -5,6 +5,10 @@ import { DataProvider } from "./Context/DataContext/context";
 import { RequestProvide } from "./Context/ContexResquests";
 import { ModalProvide } from "./Context/ModalContext/modal";
 
+
+
+
+
 const App = () => {
   return (
     <DataProvider>
@@ -20,3 +24,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+

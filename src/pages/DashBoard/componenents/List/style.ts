@@ -16,7 +16,6 @@ export const LiStyled = styled.li`
 
   .atualizar{
     font-size: 1.2rem;
-    background-color: var(--grey-0);
   }
 
   :hover {

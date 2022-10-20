@@ -4,7 +4,7 @@ import { useContext} from "react";
 import { ModalContext } from "../../../../Context/ModalContext/modal";
 import { DataContext } from "../../../../Context/DataContext/context";
 import { ModaEdite } from "../BaseModal/ModalEdite";
-import { GrDocumentUpdate } from "react-icons/gr";
+import { BsPen } from "react-icons/bs";
 
 export const List = ({ tech }) => {
   const { openModalEdit, deleteTech, setTgetUpdate} = useContext(ModalContext);
@@ -17,7 +17,7 @@ export const List = ({ tech }) => {
       setTgetUpdate (tech)
       openModalEdit()
       }}>
-      <GrDocumentUpdate />
+      <BsPen />
     </span>
 
     <DivList>
