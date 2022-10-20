@@ -12,8 +12,6 @@ export interface addTEch{
     status: string
 }
 
-
-
 export interface IModalProvid{
     showEditModal: boolean,
     setShowEditModal:Dispatch<SetStateAction<boolean>>,

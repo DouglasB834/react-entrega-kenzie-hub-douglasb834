@@ -35,7 +35,7 @@ export const DataProvider = ({ children }: IChildren) => {
     setModal(true);
     setCloseAnimation("containerCadstrar animate__flipInY");
   };
-
+  
   useEffect(() => {
     const loginUser = async () => {
       if (token) {

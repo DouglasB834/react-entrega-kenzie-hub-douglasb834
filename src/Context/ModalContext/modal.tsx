@@ -7,15 +7,12 @@ import { DataContext } from "../DataContext/context";
 
 export const ModalContext = createContext({}as IModalProvid );
 
-
 export const ModalProvide = ({ children }:IChildren) => {
   const {token, tecList, setTecList} = useContext(DataContext);
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [animation, setAnimation] = useState("");
   const [getUpdate, setTgetUpdate] = useState<IStataUpdade>({} as IStataUpdade);
-
- 
 
   const openModalEdit = () => {
     setShowEditModal(true);

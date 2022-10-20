@@ -2,12 +2,6 @@ import logo from "../../../assets/Logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { DivstyledHeader, HeaderStyled, HeaderStyledHome } from "./style";
 
-// interface iPropsHeader{
-//   locations:string
-//   onClick: ()=>void
-// }
-
-
 export const HeaderHome = () => {
   
   const location = useLocation();
@@ -45,6 +39,7 @@ export const HeaderHome = () => {
         </DivstyledHeader>
       )}
 
+      {/* caso eu tenho mais paginas futuramente deixei um Outlet */}
       <Outlet />
     </>
   );
