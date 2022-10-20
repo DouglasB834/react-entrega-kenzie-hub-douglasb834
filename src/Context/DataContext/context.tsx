@@ -41,7 +41,7 @@ export const DataProvider = ({ children }: IChildren) => {
       if (token) {
         try {
           instance.defaults.headers.authorization = `Bearer ${token}`;
-          const { data } = await instance.get(`/profile`);
+          const { data } = await instance.get<IUser>(`/profile`);
           setUser(data);
           setTecList(data.techs);
         } catch (error) {

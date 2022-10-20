@@ -13,7 +13,6 @@ export const RequestProvide = ({ children }:IChildren) => {
   const submitLogin = async (data: IUser) => {
     try {
       const response = await instance.post(`/sessions/`, data);
-      // const response = onLoging(data)
       const { user: userResponse, token } = response.data;
       const id = userResponse.id;
       setUser(userResponse);
