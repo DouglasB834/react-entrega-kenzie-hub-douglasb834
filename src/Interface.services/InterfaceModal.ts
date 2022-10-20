@@ -13,15 +13,6 @@ export interface addTEch{
     status: string
 }
 
-// export interface ISDelite{
-//     id: string 
-//     title?:string,
-//     status?:string,
-// }
-
-
-
-
 export interface IModalProvid{
     showEditModal: boolean,
     setShowEditModal:Dispatch<SetStateAction<boolean>>,
