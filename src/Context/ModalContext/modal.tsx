@@ -27,7 +27,6 @@ export const ModalProvide = ({ children }:IChildren) => {
   };
   const atualizar = async (data: addTEch) => {
     try {
-   
       const res = await instance.put(`/users/techs/${getUpdate.id }`, data);
       SucessLogin("atulizado");
       
