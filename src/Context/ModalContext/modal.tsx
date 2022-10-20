@@ -45,8 +45,7 @@ export const ModalProvide = ({ children }:IChildren) => {
       instance.defaults.headers.authorization = `Bearer ${token}`;
        instance.delete(`/users/techs/${id}`);
       SucessLogin("deletado com sucesso");
-      
-      setTecList(filter)
+      // setTecList(filter)
     } catch (error) {
       console.log(error);
     }

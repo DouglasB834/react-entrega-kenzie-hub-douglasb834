@@ -1,8 +1,4 @@
-import React, {
-  createContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { instance } from "../../Api/instance";
@@ -57,8 +53,6 @@ export const DataProvider = ({ children }: IChildren) => {
     };
     loginUser();
   }, [tecList, token]);
-
-  // console.log(tech)
 
   return (
     <DataContext.Provider
