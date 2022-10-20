@@ -5,7 +5,6 @@ import { iRequestProvid} from "../../Interface.services/requestInterface";
 import { IChildren,IUser } from "../../Interface.services/servecisData";
 import { DataContext } from "../DataContext/context";
 
-
 export const RequestContext = createContext({} as iRequestProvid);
 
 export const RequestProvide = ({ children }:IChildren) => {
@@ -40,10 +39,7 @@ export const RequestProvide = ({ children }:IChildren) => {
       NegativeRergister(`${error}`);
       console.log(error);
     }
-  
-     
    };
-
 
   return (
     <RequestContext.Provider value={{ submitLogin, onSubmitRegister }}>

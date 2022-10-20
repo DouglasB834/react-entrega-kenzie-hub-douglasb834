@@ -2,17 +2,15 @@ import { Dispatch, SetStateAction } from "react";
 import { ITechs } from "./servecisData";
 
 export interface IStataUpdade{
-    id?: string
-    title?:string
-    status?:string
+    id?: string,
+    title?:string,
+    status?:string,
 }
 
 export interface addTEch{
-    title?:string,
+    title:string,
     status: string
 }
-
-
 
 export interface IModalProvid{
     showEditModal: boolean,

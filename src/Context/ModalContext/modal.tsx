@@ -7,15 +7,12 @@ import { DataContext } from "../DataContext/context";
 
 export const ModalContext = createContext({}as IModalProvid );
 
-
 export const ModalProvide = ({ children }:IChildren) => {
   const {token, tecList, setTecList} = useContext(DataContext);
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [animation, setAnimation] = useState("");
   const [getUpdate, setTgetUpdate] = useState<IStataUpdade>({} as IStataUpdade);
-
- 
 
   const openModalEdit = () => {
     setShowEditModal(true);
@@ -27,7 +24,7 @@ export const ModalProvide = ({ children }:IChildren) => {
       setShowEditModal(false);
     }, 800);
   };
-  const atualizar = async (data: IStataUpdade) => {
+  const atualizar = async (data: addTEch) => {
     try {
    
       const res = await instance.put(`/users/techs/${getUpdate.id }`, data);
@@ -51,7 +48,7 @@ export const ModalProvide = ({ children }:IChildren) => {
     }
   };
 
-  const addListTecnologias = async (data: addTEch | undefined) => {
+  const addListTecnologias = async (data: addTEch ) => {
     try {
       instance.defaults.headers.authorization = `Bearer ${token}`;
       const res = await instance.post(`/users/techs`, data);

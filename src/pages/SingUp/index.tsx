@@ -13,7 +13,7 @@ import { useContext, useState } from "react";
 import { ImEye } from "react-icons/im";
 import { GiEyelashes } from "react-icons/gi";
 import { RequestContext } from "../../Context/ContexResquests";
-import { iErros, IUser } from "../../Interface.services/servecisData";
+import { IUser } from "../../Interface.services/servecisData";
 
 export const SingUp = () => {
   const {

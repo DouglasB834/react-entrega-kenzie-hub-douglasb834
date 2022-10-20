@@ -32,7 +32,6 @@ export const DashBoard = () => {
               <Card />
             </SectionStyled>
           </DivContainer>
-          {/* modal  */}
           <ModaEdite/>
         </>
       ) : (

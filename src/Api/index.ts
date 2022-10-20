@@ -1,7 +1,5 @@
 import { toast } from "react-toastify";
 
-
-
 export const SucessRegister =()=>{
     toast.success("✅ Cadastro realizado com suceso", {
         position: "top-right",
