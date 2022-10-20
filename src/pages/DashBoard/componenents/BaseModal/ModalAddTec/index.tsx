@@ -11,6 +11,7 @@ import { DataContext } from "../../../../../Context/DataContext/context";
 import { DivtitleModal } from "../style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ModalContext } from "../../../../../Context/ModalContext/modal";
+import { addTEch } from "../../../../../Interface.services/InterfaceModal";
 
 export const ModalAddtec = () => {
   const { closeAnimation, showModal } = useContext(DataContext);
@@ -21,13 +22,17 @@ export const ModalAddtec = () => {
     status: yup.string().required(),
   });
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<addTEch>({
     resolver: yupResolver(schema),
   });
 
-  const submit = (data) => {
-    addListTecnologias(data);
-  };
+  //  export interface ISumibt{
+
+  //  } 
+
+  // const submit = (data) => {
+  //   addListTecnologias(data);
+  // };
 
   return (
     <div className={closeAnimation}>
@@ -38,7 +43,7 @@ export const ModalAddtec = () => {
         </span>
       </DivtitleModal>
 
-      <FormStyled onSubmit={handleSubmit(submit)}>
+      <FormStyled onSubmit={handleSubmit(addListTecnologias)}>
         <label htmlFor="title">nome</label>
         <InputStyled
           id="title"
