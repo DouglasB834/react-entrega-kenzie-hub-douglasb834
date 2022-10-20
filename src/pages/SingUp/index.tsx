@@ -13,19 +13,23 @@ import { useContext, useState } from "react";
 import { ImEye } from "react-icons/im";
 import { GiEyelashes } from "react-icons/gi";
 import { RequestContext } from "../../Context/ContexResquests";
+import { IUser } from "../../Interface.services/servecisData";
 
-export const SingUp = () => { 
+export const SingUp = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IUser>({
     resolver: yupResolver(UserSchema),
   });
 
-  const { onSubmitRegister} = useContext(RequestContext);
+  const { onSubmitRegister } = useContext(RequestContext);
 
   const [changePsw, setChangePsw] = useState(false);
+
+
+
   return (
     <DivStyled>
       <FormStyled
@@ -64,7 +68,7 @@ export const SingUp = () => {
             placeholder="Digite sua Senha"
             {...register("password")}
           />
-         
+
           <span>
             {changePsw ? (
               <ImEye onClick={() => setChangePsw(false)} />
@@ -103,6 +107,7 @@ export const SingUp = () => {
         <span className="errors">{errors.contact?.message}</span>
 
         <label htmlFor="course_module">Selecione módulo</label>
+
         <SelectStyled id="course_module" {...register("course_module")}>
           <option value="Primeiro módulo (Introdução ao Frontend)">
             Primeiro módulo

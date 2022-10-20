@@ -16,9 +16,7 @@ export const LiStyled = styled.li`
 
   .atualizar{
     font-size: 1.2rem;
-    background-color: var(--grey-0);
   }
-
 
   :hover {
     background-color: var(--grey-1);
@@ -32,8 +30,6 @@ export const LiStyled = styled.li`
     font-size: var(--title2);
     color: var(--grey-1);
   }
-
- 
 
   .trash {
     transition: 0.3s linear;

@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../../../Context/DataContext/context";
+import { IChildren } from "../../../../Interface.services/servecisData";
 import { ModalStyled, OverlayStyled } from "./style";
 
-export const BaseMdal = ({ children }) => {
-  const { isModal,} = useContext(DataContext);
+export const BaseMdal = ({ children }:IChildren) => {
+  const { isModal} = useContext(DataContext);
 
   return (
     <>

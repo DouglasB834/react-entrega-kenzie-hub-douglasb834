@@ -19,7 +19,7 @@ export const DashBoard = () => {
   return (
     <MainStyled className="animate__fadeIn">
 
-      {user ? (
+      {token ? (
         <>
           <BaseMdal>
             <ModalAddtec />
@@ -32,7 +32,6 @@ export const DashBoard = () => {
               <Card />
             </SectionStyled>
           </DivContainer>
-          {/* modal  */}
           <ModaEdite/>
         </>
       ) : (

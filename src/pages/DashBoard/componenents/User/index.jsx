@@ -3,10 +3,8 @@ import { useContext } from "react"
 import { DataContext } from "../../../../Context/DataContext/context"
 import { UserDivStyled } from "./style"
 
-
 export const User =() =>{
-    const { user}= useContext(DataContext)
-    
+    const { user}= useContext(DataContext)  
     return(
         <UserDivStyled>
             <div className="contentUser">

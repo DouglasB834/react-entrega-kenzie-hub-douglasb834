@@ -129,8 +129,5 @@ input{
 	.btnLogin, .singUp, .btnSingForm{
         height:3rem ;
 
-	}
-    }
-
-
+	}}
 `
