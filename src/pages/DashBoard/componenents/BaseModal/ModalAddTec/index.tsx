@@ -26,14 +26,6 @@ export const ModalAddtec = () => {
     resolver: yupResolver(schema),
   });
 
-  //  export interface ISumibt{
-
-  //  } 
-
-  // const submit = (data) => {
-  //   addListTecnologias(data);
-  // };
-
   return (
     <div className={closeAnimation}>
       <DivtitleModal>

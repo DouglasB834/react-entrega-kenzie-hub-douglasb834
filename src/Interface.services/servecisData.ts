@@ -15,7 +15,6 @@ export interface IPropsValue {
     showModal: ()=>void,
     add :()=>void,
     token:string | null
-
   }
 
   export interface IChildren {

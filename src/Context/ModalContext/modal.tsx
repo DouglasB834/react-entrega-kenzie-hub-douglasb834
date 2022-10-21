@@ -25,7 +25,7 @@ export const ModalProvide = ({ children }:IChildren) => {
       setShowEditModal(false);
     }, 800);
   };
-  const atualizar = async (data: addTEch) => {
+  const atualizar = async (data: addTEch):Promise<void> => {
     try {
       const res = await instance.put(`/users/techs/${getUpdate.id }`, data);
       SucessLogin("atulizado");
@@ -36,7 +36,7 @@ export const ModalProvide = ({ children }:IChildren) => {
     }
   };
 
-  const deleteTech = ( id:string) => {
+  const deleteTech = ( id: string):void => {
     try {
       const filter = tecList.filter(tech => tech.id !== id)
       instance.defaults.headers.authorization = `Bearer ${token}`;
@@ -48,7 +48,7 @@ export const ModalProvide = ({ children }:IChildren) => {
     }
   };
 
-  const addListTecnologias = async (data: FieldValues ) => {
+  const addListTecnologias = async (data: FieldValues ):Promise<void> => {
     try {
       instance.defaults.headers.authorization = `Bearer ${token}`;
       const res = await instance.post(`/users/techs`, data);

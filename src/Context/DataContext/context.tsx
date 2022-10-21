@@ -37,7 +37,8 @@ export const DataProvider = ({ children }: IChildren) => {
   };
   
   useEffect(() => {
-    const loginUser = async () => {
+    const loginUser = async ():Promise<void> => {
+      
       if (token) {
         try {
           instance.defaults.headers.authorization = `Bearer ${token}`;
