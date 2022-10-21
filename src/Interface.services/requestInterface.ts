@@ -7,4 +7,5 @@ export interface iRequestProvid{
     onSubmitRegister: (data: IUser) => void,
 }
 
+
 //ia fazer as request da API aqu porem tive problemas e fiz onde estava mesmo

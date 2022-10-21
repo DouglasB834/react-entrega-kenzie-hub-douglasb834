@@ -14,7 +14,7 @@ export interface IPropsValue {
     navigate:NavigateFunction,
     showModal: ()=>void,
     add :()=>void,
-    token:string | null
+    token:string |null
   }
 
   export interface IChildren {
@@ -28,7 +28,7 @@ export interface IPropsValue {
   }
   
   export interface IUser {
-    id?: string;
+    id: string;
     name: string;
     email: string;
     password: string;
@@ -37,6 +37,7 @@ export interface IPropsValue {
     contact?: string;
     course_module?: string;
     techs: ITechs[];
+   
   }
 
   export interface iErros{
