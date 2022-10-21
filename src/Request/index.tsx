@@ -1,12 +1,13 @@
 
 import { useNavigate } from "react-router-dom";
 import { instance } from "../Api/instance";
+import { IUser } from "../Interface.services/servecisData";
 
-export const Register = (data) => {
+export const Register = (data: IUser):void => {
 
   const navigate = useNavigate();
 
-  instance.post(`/users`, data)
+  instance.post<IUser>(`/users`, data)
   .then((res) => {
       navigate("/");
     })

@@ -50,7 +50,7 @@ const update =(data:IStataUpdade)=>{
 
                 <label htmlFor="status">Status</label>
                 <SelectStyled {...register("status")}>
-                  <option>Selcione Nivel</option>
+                  <option>Selecione Nivel</option>
                   <option value="Iniciante">Iniciante</option>
                   <option value="Intermediário">Intermediário</option>
                   <option value="Avançado">Avançado</option>

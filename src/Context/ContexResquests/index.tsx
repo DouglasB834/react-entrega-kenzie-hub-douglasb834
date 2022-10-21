@@ -8,14 +8,23 @@ import { DataContext } from "../DataContext/context";
 export const RequestContext = createContext({} as iRequestProvid);
 
 export const RequestProvide = ({ children }:IChildren) => {
+  
   const { navigate, user, setUser } = useContext(DataContext);
+
+  interface Idata {
+    user:IUser,
+    token:string,
+
+  }
 
   const submitLogin = async (data: IUser) => {
     try {
-      const response = await instance.post(`/sessions/`, data);
-      const { user: userResponse, token } = response.data;
-      const id = userResponse.id;
-      setUser(userResponse);
+      const response = await instance.post<Idata>(`/sessions/`, data);
+      
+      const { user, token } = response.data;
+      console.log(response)
+      const id = user.id;
+      setUser(user);
 
       SucessLogin("Logando...")
       localStorage.setItem("@hub:id", id);
@@ -29,9 +38,9 @@ export const RequestProvide = ({ children }:IChildren) => {
     }
   };
 
-  const  onSubmitRegister = async (data :IUser) => {
+  const  onSubmitRegister = async (data :IUser):Promise<void> => {
     try {
-      const resposta = await instance.post(`/users`, data)
+      const resposta = await instance.post<IUser>(`/users`, data)
       SucessRegister();
       navigate("/")
     } catch (error) {      

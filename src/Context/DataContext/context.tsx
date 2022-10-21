@@ -17,11 +17,11 @@ export const DataProvider = ({ children }: IChildren) => {
 
   const [user, setUser] = useState<IUser>({} as IUser);
 
-  const [isModal, setModal] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isModal, setModal] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const [closeAnimation, setCloseAnimation] = useState("");
-  const [deletAnimation, setDeletAnimation] = useState("animate__fadeInUp");
+  const [closeAnimation, setCloseAnimation] = useState<string>("");
+  const [deletAnimation, setDeletAnimation] = useState<string>("animate__fadeInUp");
   const [tecList, setTecList] = useState<ITechs[]>([]);
 
   const showModal = () => {
@@ -37,7 +37,8 @@ export const DataProvider = ({ children }: IChildren) => {
   };
   
   useEffect(() => {
-    const loginUser = async () => {
+    const loginUser = async ():Promise<void> => {
+      
       if (token) {
         try {
           instance.defaults.headers.authorization = `Bearer ${token}`;
