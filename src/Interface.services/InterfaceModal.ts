@@ -13,6 +13,16 @@ export interface addTEch{
     status: string
 }
 
+
+export interface Ires{
+    created_at?:string
+    id:string
+    status: string
+    title: string
+    updated_at?:string
+
+}
+
 export interface IModalProvid{
     showEditModal: boolean,
     setShowEditModal:Dispatch<SetStateAction<boolean>>,

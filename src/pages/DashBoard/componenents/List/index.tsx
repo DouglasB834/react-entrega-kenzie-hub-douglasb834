@@ -5,8 +5,15 @@ import { ModalContext } from "../../../../Context/ModalContext/modal";
 import { DataContext } from "../../../../Context/DataContext/context";
 import { ModaEdite } from "../BaseModal/ModalEdite";
 import { BsPen } from "react-icons/bs";
+import { Ires } from "../../../../Interface.services/InterfaceModal";
 
-export const List = ({ tech }) => {
+export interface ItechMap{
+  tech: Ires
+}
+
+
+
+export const List = ({tech}:ItechMap) => {
   const { openModalEdit, deleteTech, setTgetUpdate} = useContext(ModalContext);
   const { deletAnimation } = useContext(DataContext);
 

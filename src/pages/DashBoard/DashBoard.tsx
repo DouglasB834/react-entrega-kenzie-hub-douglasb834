@@ -1,4 +1,4 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { DataContext } from "../../Context/DataContext/context";
 import { AddTec } from "./componenents/AddTecnologias";
 import { BaseMdal } from "./componenents/BaseModal";
@@ -13,30 +13,31 @@ export const DashBoard = () => {
   const { navigate, loading, user, token } = useContext(DataContext);
 
   if (loading) {
-    return <img src={Loading} alt="" />
+    return <img src={Loading} alt="" />;
   }
 
   return (
     <MainStyled className="animate__fadeIn">
+      <>
+        {token ? (
+          <>
+            <BaseMdal>
+              <ModalAddtec />
+            </BaseMdal>
 
-      {token ? (
-        <>
-          <BaseMdal>
-            <ModalAddtec />
-          </BaseMdal>
-
-          <User user={user} />
-          <DivContainer className="container">
-            <SectionStyled>
-              <AddTec />
-              <Card />
-            </SectionStyled>
-          </DivContainer>
-          <ModaEdite/>
-        </>
-      ) : (
-        navigate("/")
-      )}
+            <User />
+            <DivContainer className="container">
+              <SectionStyled>
+                <AddTec />
+                <Card />
+              </SectionStyled>
+            </DivContainer>
+            <ModaEdite />
+          </>
+        ) : (
+          navigate("/")
+        )}
+      </>
     </MainStyled>
   );
 };
