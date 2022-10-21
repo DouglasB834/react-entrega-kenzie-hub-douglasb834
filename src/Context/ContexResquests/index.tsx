@@ -10,7 +10,7 @@ export const RequestContext = createContext({} as iRequestProvid);
 export const RequestProvide = ({ children }:IChildren) => {
   const { navigate, user, setUser } = useContext(DataContext);
 
-  const submitLogin = async (data: IUser) => {
+  const submitLogin = async (data: IUser):Promise<void> => {
     try {
       const response = await instance.post(`/sessions/`, data);
       const { user: userResponse, token } = response.data;
@@ -29,7 +29,7 @@ export const RequestProvide = ({ children }:IChildren) => {
     }
   };
 
-  const  onSubmitRegister = async (data :IUser) => {
+  const  onSubmitRegister = async (data :IUser):Promise<void> => {
     try {
       const resposta = await instance.post(`/users`, data)
       SucessRegister();
